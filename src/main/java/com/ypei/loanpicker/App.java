@@ -21,7 +21,7 @@ public class App {
 
 		List<Loan> loansLoaded = LoanLoader.loadLoans();
 
-		List<Loan> loansPicked = LoanPicker.pickLoans(loansLoaded);
+		List<Loan> loansPicked = new LoanPicker().pickLoans(loansLoaded);
 
 		Set<Long> ownedLoanIds = OwnedNoteLoader.loadOwnedNotes();
 

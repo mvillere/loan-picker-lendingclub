@@ -101,11 +101,11 @@ import com.ypei.loanpicker.beans.Loan;
  * @author ypei
  *
  */
-public class PickRule {
+public class PickRule implements IRule {
 	
 	private static Logger logger = Logger.getLogger(PickRule.class);
 	
-	public static boolean pickBasedOnRule (Loan l){
+	public boolean pickBasedOnRule (Loan l){
 		
 		logger.info("PICK_RULE_CDE APPLIED on Loan " + l.id);
 		

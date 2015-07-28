@@ -9,11 +9,17 @@ import org.apache.log4j.Logger;
 
 import com.ypei.loanpicker.beans.Loan;
 
-public class LoanPicker {
+public class LoanPicker implements ILoanPicker {
 
 	private static Logger logger = Logger.getLogger(LoanPicker.class);
 
-	public static List<Loan> pickLoans(List<Loan> loansLoaded) {
+	private IRule rule;
+	
+	public LoanPicker() {
+		this.rule = new PickRule();
+	}
+	
+	public List<Loan> pickLoans(List<Loan> loansLoaded) {
 
 		List<Loan> loansPicked = new ArrayList<Loan>();
 
@@ -21,7 +27,7 @@ public class LoanPicker {
 
 			for (Loan l : loansLoaded) {
 
-				if (PickRule.pickBasedOnRule(l)) {
+				if (rule.pickBasedOnRule(l)) {
 					loansPicked.add(l);
 				}
 			}
@@ -54,5 +60,6 @@ public class LoanPicker {
 		return loansPicked;
 
 	}// end func
+
 
 }
