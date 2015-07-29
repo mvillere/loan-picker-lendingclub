@@ -136,4 +136,8 @@ public class PickRule implements IRule {
 						|| l.purpose.equalsIgnoreCase("credit_card") )
 				);
 	}
+
+	public String getName() {
+		return "PickRule";
+	}
 }
